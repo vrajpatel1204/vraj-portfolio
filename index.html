@@ -1,90 +1,207 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0c0c0e">
-  <meta name="description" content="Vraj Patel's personal website. Portfolio coming soon.">
-  <title>Vraj Patel</title>
-  <style>
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      background: #0c0c0e;
-      color: #f5f5f5;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    main { width: 100%; max-width: 760px; }
-
-    .status {
-      color: #a3a3a3;
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-    }
-
-    .dot {
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-      margin-right: 9px;
-      border-radius: 50%;
-      background: #8db8a1;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(3.5rem, 10vw, 6.5rem);
-      font-weight: 600;
-      letter-spacing: -0.07em;
-    }
-
-    .message {
-      margin-top: 24px;
-      color: #a3a3a3;
-      font-size: 18px;
-      line-height: 1.7;
-    }
-
-    a {
-      display: inline-block;
-      margin-top: 24px;
-      padding-bottom: 6px;
-      color: #f5f5f5;
-      text-decoration: none;
-      border-bottom: 1px solid #666;
-    }
-
-    a:hover { color: #b8c9ff; }
-
-    footer {
-      margin-top: 80px;
-      color: #666;
-      font-size: 12px;
-    }
-  </style>
+  <meta name="theme-color" content="#04070d">
+  <meta name="description" content="Vraj Patel — full-stack developer, Smart India Hackathon 2025 national winner.">
+  <meta property="og:title" content="Vraj Patel — Full-Stack Developer">
+  <meta property="og:description" content="Smart India Hackathon 2025 national winner. Backend, real-time systems and AI.">
+  <meta property="og:type" content="website">
+  <title>Vraj Patel — Full-Stack Developer</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%2304070d' stroke='%234de8ff' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='10' fill='%23e8fdff'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="importmap">
+    { "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    } }
+  </script>
 </head>
 <body>
+  <canvas id="embers" aria-hidden="true"></canvas>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <!-- Main-profile bar: LinkedIn is the real source of truth for now -->
+  <a class="topbar" href="https://www.linkedin.com/in/vraj-patel1204" target="_blank" rel="noopener noreferrer">
+    <span class="topbar-text">Quick teaser page<span class="long"> — my full profile lives on LinkedIn</span></span>
+    <span class="topbar-cta">View LinkedIn ↗</span>
+  </a>
+
+  <header class="nav" id="nav">
+    <a href="#top" class="brand">VRAJ<b>.</b>PATEL</a>
+    <nav class="nav-links">
+      <a href="#highlights">Highlights</a>
+      <a href="#projects">Projects</a>
+      <a href="#stack">Stack</a>
+    </nav>
+  </header>
+
   <main>
-    <p class="status"><span class="dot"></span>Website in progress</p>
-    <h1>Vraj Patel.</h1>
-    <p class="message">
-      Building something meaningful.<br>
-      My portfolio is coming soon.
-    </p>
-    <a href="https://www.linkedin.com/in/vraj-patel1204/"
-       target="_blank" rel="noopener noreferrer">
-      Connect on LinkedIn ↗
-    </a>
-    <footer>© 2026 Vraj Patel</footer>
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow mono reveal"><i class="pulse-dot"></i>Pune, India</p>
+        <h1 class="reveal">Vraj<br>Patel<em>.</em></h1>
+        <p class="role reveal">Software Engineering Apprentice at Lowe's<br><span>Full-stack · Backend · AI</span></p>
+
+        <div class="interests reveal">
+          <span class="mono label">Interests</span>
+          <ul>
+            <li>AI / ML</li>
+            <li>IoT &amp; Embedded Systems</li>
+            <li>Scalable Systems</li>
+            <li>Backend Engineering</li>
+          </ul>
+        </div>
+
+        <div class="hero-links reveal">
+          <a class="btn btn-primary" href="https://github.com/VRAJPATEL621204" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a class="btn btn-ghost" href="https://leetcode.com/u/VrajPatel1204/" target="_blank" rel="noopener noreferrer">LeetCode ↗</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/vraj-patel1204" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+        </div>
+      </div>
+
+      <div class="hero-reactor reveal" aria-hidden="true">
+        <div class="reactor-halo"></div>
+        <svg class="reactor" id="reactor" viewBox="0 0 400 400"></svg>
+        <canvas class="reactor3d" id="reactor3d"></canvas>
+      </div>
+    </section>
+
+    <!-- HIGHLIGHTS -->
+    <section class="section" id="highlights">
+      <div class="section-head reveal">
+        <span class="mono tag">Highlights</span>
+      </div>
+      <div class="highlights">
+        <article class="hl hl-gold reveal">
+          <div class="hl-text">
+            <span class="mono kicker">Achievement · Dec 2025</span>
+            <h3>Smart India Hackathon 2025 — Winner</h3>
+            <p>Secured 1st rank nationally among 800,000+ participants for problem statement SIH25004, Software Edition Grand Finale.</p>
+          </div>
+          <div class="gallery">
+            <button class="shot s-portrait" type="button" aria-label="Enlarge photo"><img src="assets/sih-vraj.webp" alt="Winner cheque at the SIH 2025 Grand Finale" loading="lazy"></button>
+            <button class="shot s-wide1" type="button" aria-label="Enlarge photo"><img src="assets/sih-team.webp" alt="Winning team on stage at the SIH 2025 Grand Finale" loading="lazy"></button>
+            <button class="shot s-wide2" type="button" aria-label="Enlarge photo"><img src="assets/sih-ceremony.webp" alt="SIH 2025 Grand Finale prize distribution ceremony" loading="lazy"></button>
+          </div>
+        </article>
+        <article class="hl hl-job tilt reveal">
+          <div>
+            <span class="mono kicker">Currently · Since July 2026</span>
+            <h3>Software Engineering Apprentice</h3>
+            <p>Lowe's</p>
+          </div>
+          <img class="job-logo" src="assets/lowes-logo.svg" alt="Lowe's" width="182" height="86">
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="section-head reveal">
+        <span class="mono tag">Main projects</span>
+      </div>
+
+      <article class="project featured tilt reveal">
+        <div class="project-top">
+          <span class="badge gold">★ SIH 2025 Winner</span>
+          <span class="mono date">Aug 2025 — Dec 2025</span>
+        </div>
+        <h3>PashuShodh</h3>
+        <p class="sub">AI breed detection system · Bharat Pashudhan App</p>
+        <p>Offline AI that recognises cattle and buffalo breeds for field workers in low-connectivity rural India, in 22 Indian languages.</p>
+        <ul class="metrics">
+          <li><b>30</b> breeds</li>
+          <li><b>22</b> languages</li>
+          <li><b>3-stage</b> EfficientNetB3 CNN</li>
+          <li><b>Offline</b> TFLite on-device</li>
+        </ul>
+        <div class="chips small"><span>TensorFlow / Keras</span><span>TFLite</span><span>React Native</span><span>Python</span><span>Transfer Learning</span></div>
+        <div class="project-links">
+          <a href="https://github.com/VRAJPATEL621204/AI-BREED-DETECTION-SYSTEM-CNN-" target="_blank" rel="noopener noreferrer">GitHub repo ↗</a>
+        </div>
+      </article>
+
+      <article class="project tilt reveal">
+        <div class="project-top">
+          <span class="badge live"><i class="pulse-dot"></i>In development</span>
+          <span class="mono date">Apr 2026 — Present</span>
+        </div>
+        <h3>SyncOps</h3>
+        <p class="sub">Enterprise incident management platform</p>
+        <p>Multi-tenant incident tracking with workflow automation and real-time collaboration.</p>
+        <ul class="metrics">
+          <li><b>35+</b> REST APIs</li>
+          <li><b>6-stage</b> lifecycle</li>
+          <li><b>3-tier</b> RBAC</li>
+          <li><b>AES-256-GCM</b> chat</li>
+        </ul>
+        <div class="chips small"><span>React.js</span><span>Node.js</span><span>Express.js</span><span>PostgreSQL</span><span>Prisma</span><span>Socket.IO</span><span>JWT</span></div>
+        <div class="project-links">
+          <a href="https://github.com/VRAJPATEL621204/syncops" target="_blank" rel="noopener noreferrer">GitHub repo ↗</a>
+          <a href="https://syncops.onrender.com/" target="_blank" rel="noopener noreferrer">Live demo ↗</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- STACK -->
+    <section class="section" id="stack">
+      <div class="section-head reveal">
+        <span class="mono tag">Tech stack</span>
+      </div>
+      <div class="stack-grid">
+        <div class="stack tilt reveal"><h3 class="mono">Languages</h3><div class="chips"><span>Python</span><span>Java</span><span>JavaScript</span><span>C++</span></div></div>
+        <div class="stack tilt reveal"><h3 class="mono">Frontend</h3><div class="chips"><span>ReactJS</span><span>Next.js</span><span>HTML5</span><span>CSS3</span><span>TailwindCSS</span></div></div>
+        <div class="stack tilt reveal"><h3 class="mono">Backend</h3><div class="chips"><span>Node.js</span><span>Express.js</span><span>REST APIs</span><span>WebSockets</span><span>JWT Auth</span><span>Prisma ORM</span></div></div>
+        <div class="stack tilt reveal"><h3 class="mono">Databases</h3><div class="chips"><span>PostgreSQL</span><span>MongoDB</span><span>MySQL</span></div></div>
+        <div class="stack tilt reveal"><h3 class="mono">AI / ML</h3><div class="chips"><span>TensorFlow / Keras</span><span>TFLite</span><span>Transfer Learning</span><span>CNNs</span><span>Pandas</span><span>NumPy</span></div></div>
+        <div class="stack tilt reveal"><h3 class="mono">Tools &amp; Deploy</h3><div class="chips"><span>Git</span><span>GitHub</span><span>Docker</span><span>Postman</span><span>Bruno</span><span>Vercel</span><span>Render</span><span>Railway</span></div></div>
+      </div>
+    </section>
+
+    <!-- LINKS -->
+    <section class="section find" id="links">
+      <div class="section-head reveal">
+        <span class="mono tag">Find me</span>
+      </div>
+      <div class="find-grid">
+        <a class="find-card tilt reveal" href="https://github.com/VRAJPATEL621204" target="_blank" rel="noopener noreferrer"><span class="mono">Code</span><strong>GitHub</strong><i>↗</i></a>
+        <a class="find-card tilt reveal" href="https://leetcode.com/u/VrajPatel1204/" target="_blank" rel="noopener noreferrer"><span class="mono">Problem solving</span><strong>LeetCode</strong><i>↗</i></a>
+        <a class="find-card tilt reveal" href="https://www.linkedin.com/in/vraj-patel1204" target="_blank" rel="noopener noreferrer"><span class="mono">Professional</span><strong>LinkedIn</strong><i>↗</i></a>
+      </div>
+    </section>
+
+    <!-- COMING SOON -->
+    <section class="section soon" id="soon">
+      <div class="soon-card reveal">
+        <span class="mono tag">v0.1 · Teaser</span>
+        <h2>The full portfolio is <span class="glow-text">still charging.</span></h2>
+        <p>
+          Think of this page as the trailer, not the film. A detailed website —
+          deep-dive case studies, architecture write-ups and everything I'm
+          building — is on its way. Until it lands, this is a snapshot, not the
+          full picture; LinkedIn has the rest.
+        </p>
+        <div class="charge" role="img" aria-label="Detailed website: in progress"><i></i></div>
+        <a class="btn btn-primary" href="https://www.linkedin.com/in/vraj-patel1204" target="_blank" rel="noopener noreferrer">See the full profile on LinkedIn ↗</a>
+      </div>
+    </section>
   </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true"><img alt=""></div>
+
+  <footer class="footer mono">
+    <span>© 2026 Vraj Patel</span>
+    <span>Teaser · detailed site coming soon</span>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script type="module" src="js/reactor3d.js"></script>
 </body>
 </html>
