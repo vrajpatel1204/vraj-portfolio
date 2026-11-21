@@ -165,7 +165,10 @@ main, .footer, .nav { position: relative; z-index: 1; }
           mask-image: radial-gradient(circle at 50% 50%, #000 52%, transparent 71%);
 }
 .hero-reactor.gl-ready .reactor3d { opacity: 1; }
-.hero-reactor.gl-ready .reactor { visibility: hidden; }
+/* SVG reactor is only a fallback: hidden by default so it never flashes before the 3D one loads */
+.reactor { opacity: 0; }
+.hero-reactor.gl-failed .reactor { opacity: 1; transition: opacity 0.6s ease; }
+.hero-reactor.gl-ready .reactor { display: none; }
 
 /* SIH photo gallery */
 .gallery { display: grid; grid-template-columns: 1fr 1.35fr; grid-template-rows: 1fr 1fr; gap: 10px; aspect-ratio: 1.45; }
