@@ -141,6 +141,12 @@
     })();
   })();
 
+  // Safety net: if the 3D reactor still isn't up after 15s (slow/blocked CDN), show the SVG one.
+  setTimeout(() => {
+    const w = $(".hero-reactor");
+    if (w && !w.classList.contains("gl-ready")) w.classList.add("gl-failed");
+  }, 15000);
+
   /* ---------- Hero reveal ---------- */
   $$(".hero .reveal").forEach((el, i) => {
     el.style.setProperty("--d", `${0.1 + i * 0.12}s`);

@@ -22,6 +22,7 @@ try {
   init();
 } catch (err) {
   console.warn("[reactor3d] falling back to SVG:", err);
+  wrap?.classList.add("gl-failed");
 }
 
 function init() {
